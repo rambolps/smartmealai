@@ -1,4 +1,4 @@
-# smartmealai
+# Smart Meal AI
 
 A new Flutter project.
 
