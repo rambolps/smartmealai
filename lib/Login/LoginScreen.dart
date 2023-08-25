@@ -6,8 +6,21 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(16, 19, 20, 1),
+        centerTitle: true,
+        title: Text(
+          "Login",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.notoSans(
+              fontSize: 18,
+              fontWeight: FontWeight.normal
+          ),
+        ),
+      ),
       backgroundColor: Colors.black,
+
 
     );
   }
