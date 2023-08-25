@@ -40,8 +40,14 @@ class SplashScreen extends StatelessWidget {
                   Expanded(
                       flex: 4,
                       child: FloatingActionButton.extended(
-                        onPressed: () {  },
-                        label: const Text("Let's Start"),
+                        onPressed: () => Navigator.pushNamed(context, '/login'),
+                        label: const Text("Let's Start",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal
+                            )),
+                        icon: const Icon(Icons.arrow_forward),
                       backgroundColor: Theme.of(context).primaryColor,
                       )
                   ),
