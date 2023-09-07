@@ -6,9 +6,30 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.black,
+    return Scaffold(
+      backgroundColor: Colors.blueAccent,
+      appBar:AppBar(
+        title: const Text('Nav Bar', textAlign: TextAlign.center,),
+        centerTitle: true,
 
+
+      ),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+          label: 'home'
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: 'settings'
+
+
+        )
+      ],
+
+
+
+      ),
     );
   }
 }
