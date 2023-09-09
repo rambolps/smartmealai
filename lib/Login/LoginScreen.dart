@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(16, 19, 20, 1),
         centerTitle: true,
         title: Text(
-          "Login",
+          "Login Test",
           textAlign: TextAlign.center,
           style: GoogleFonts.notoSans(
               fontSize: 18,
