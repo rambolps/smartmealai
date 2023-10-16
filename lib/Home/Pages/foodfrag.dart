@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:smartmealai/components/chatBubble.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
+import 'package:smartmealai/Token.dart';
 
 
 class MessageData{
@@ -21,15 +21,31 @@ class _FoodFragState extends State<FoodFrag> {
 
   final List _messages= [];
   final TextEditingController _promptController = TextEditingController();
-  final openAI = OpenAI.instance.build(token: token,baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)),enableLog: true);
+  // late OpenAI openAI;
+  // @override
+  // void initState(){
+  //   openAI = OpenAI.instance.build(token: Token_OpenAI);
+  //   super.initState();
+  // }
+
+  final openAI = OpenAI.instance.build(token: Token_OpenAI,baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)),enableLog: true);
+
 
 
   void sendPrompt(MessageData newMessage) async{
     if(_promptController.text.isNotEmpty){
 
+      setState(() {
+        _messages.add(newMessage);
+      });
+
+      final request = CompleteText(prompt:newMessage.message, model: TextDavinci3Model(), maxTokens: 200);
+
+      final response = await openAI.onCompletion(request:request);
+
 
       setState(() {
-       _messages.add(newMessage);
+       _messages.add(MessageData("SmartMeal AI", response!.choices.first.text.trim()));
       });
     }
   }
