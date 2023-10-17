@@ -39,6 +39,7 @@ dependencies:
   firebase_core: ^2.15.1
   flutter_launcher_icons: ^0.13.1
   chat_gpt_sdk: ^2.2.5
+  google_nav_bar: ^5.0.6
 
 dev_dependencies:
   flutter_test:

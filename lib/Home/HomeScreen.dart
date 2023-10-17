@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:smartmealai/Home/Pages/foodfrag.dart';
 import 'package:smartmealai/Home/Pages/homefrag.dart';
 import 'package:smartmealai/Home/Pages/settingsfrag.dart';
@@ -40,18 +41,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _navigateBottomBar,
-        currentIndex: _selectedIndex,
-        backgroundColor: const Color.fromRGBO(9, 11, 12, 1.0),
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: const Color.fromRGBO(2, 118, 248, 1.0),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.restaurant), label: 'Food'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
-        ],
+      bottomNavigationBar: GNav(
+        backgroundColor: Colors.black,
+          color: Colors.white,
+          haptic: true,
+          activeColor: Theme.of(context).primaryColor,
+          onTabChange: _navigateBottomBar,
+          gap: 8,
+          tabs: const [
+            GButton(
+                icon: Icons.home,
+                text: 'Home',
+            ),
+            GButton(
+              icon: Icons.restaurant,
+              text: 'Food',
+            ),
+            GButton(
+              icon: Icons.settings,
+              text: 'Settings',
+            ),
+          ]
+
       ),
     );
   }

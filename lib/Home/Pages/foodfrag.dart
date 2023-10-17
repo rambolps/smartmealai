@@ -21,12 +21,6 @@ class _FoodFragState extends State<FoodFrag> {
 
   final List _messages= [];
   final TextEditingController _promptController = TextEditingController();
-  // late OpenAI openAI;
-  // @override
-  // void initState(){
-  //   openAI = OpenAI.instance.build(token: Token_OpenAI);
-  //   super.initState();
-  // }
 
   final openAI = OpenAI.instance.build(token: Token_OpenAI,baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)),enableLog: true);
 
